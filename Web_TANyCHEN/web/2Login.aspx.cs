@@ -22,10 +22,6 @@ namespace Web_TANyCHEN
                 int errorCode = Marshal.GetLastWin32Error();
                 Response.Write($"<script>alert('加载 SQLite.Interop.dll 失败，错误代码: {errorCode}');</script>");
             }
-            else
-            {
-                Response.Write($"<script>alert('加载 SQLite.Interop.dll 成功');</script>");
-            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -39,8 +35,10 @@ namespace Web_TANyCHEN
 
             if (userTable != null && userTable.Rows.Count > 0)
             {
-                // 获取用户角色
+                // 获取用户角色和其他信息
                 string role = userTable.Rows[0]["Role"].ToString();
+                string name = userTable.Rows[0]["Username"].ToString(); // 根据数据库字段
+                int id = Convert.ToInt32(userTable.Rows[0]["Id"]);
 
                 // 根据角色跳转
                 if (role == "doctor")
@@ -49,7 +47,8 @@ namespace Web_TANyCHEN
                 }
                 else if (role == "patient")
                 {
-                    Response.Redirect("4Patient.aspx");
+                    // 将患者Id和Name传递给患者页面
+                    Response.Redirect($"4Patient.aspx?PatientId={id}&PatientName={name}");
                 }
                 else
                 {
@@ -62,5 +61,6 @@ namespace Web_TANyCHEN
                 Response.Write("<script>alert('用户名或密码错误');</script>");
             }
         }
+
     }
 }
