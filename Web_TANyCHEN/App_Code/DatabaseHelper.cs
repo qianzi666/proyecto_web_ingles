@@ -16,7 +16,8 @@ namespace Web_TANyCHEN
             using (SQLiteConnection conn = new SQLiteConnection(GetConnectionString()))
             {
                 conn.Open();
-                string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
+                // 注意列名的大小写与数据库一致
+                string query = "SELECT Username, Password, Role, Name FROM Users WHERE Username = @Username AND Password = @Password";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Username", username);
@@ -31,6 +32,8 @@ namespace Web_TANyCHEN
                 }
             }
         }
+
+
 
         public static DataTable GetAllPatients()
         {
@@ -276,5 +279,85 @@ namespace Web_TANyCHEN
                 }
             }
         }
+        public static DataTable GetMedicalRecordsByPIN(string pin)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(GetConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM MedicalRecords WHERE PIN = @PIN";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PIN", pin);
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public static DataTable GetPatientByPIN(string pin)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(GetConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Patients WHERE PIN = @PIN";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PIN", pin);
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+
+        public static DataTable GetPatientByName(string name)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(GetConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Patients WHERE Name = @Name";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+        public static DataTable GetMedicalRecordsByPatientId2(int patientId)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(GetConnectionString()))
+            {
+                conn.Open();
+                string query = "SELECT * FROM MedicalRecords WHERE PatientId = @PatientId";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@PatientId", patientId);
+                    using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+        }
+
+
+
+
     }
 }

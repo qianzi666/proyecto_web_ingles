@@ -70,17 +70,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="web\4Patients.aspx" />
     <Content Include="web\3Doctor.aspx" />
     <Content Include="web\2Login.aspx" />
-    <Content Include="web\4Patient.aspx" />
     <Content Include="Web.config" />
     <Content Include="web\1Index.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DatabaseHelper.cs" />
-    <Compile Include="App_Code\Models.cs">
+    <Compile Include="web\4Patients.aspx.cs">
+      <DependentUpon>4Patients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="web\4Patients.aspx.designer.cs">
+      <DependentUpon>4Patients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\DatabaseHelper.cs" />
+    <Compile Include="App_Code\Models.cs" />
     <Compile Include="web\3Doctor.aspx.cs">
       <DependentUpon>3Doctor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,13 +99,6 @@
     </Compile>
     <Compile Include="web\2Login.aspx.designer.cs">
       <DependentUpon>2Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="web\4Patient.aspx.cs">
-      <DependentUpon>4Patient.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="web\4Patient.aspx.designer.cs">
-      <DependentUpon>4Patient.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="web\1Index.aspx.cs">

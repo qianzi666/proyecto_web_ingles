@@ -17,11 +17,7 @@ namespace Web_TANyCHEN
             string dllPath = Server.MapPath("~/bin/x64/SQLite.Interop.dll");
             IntPtr handle = LoadLibrary(dllPath);
 
-            if (handle == IntPtr.Zero)
-            {
-                int errorCode = Marshal.GetLastWin32Error();
-                Response.Write($"<script>alert('加载 SQLite.Interop.dll 失败，错误代码: {errorCode}');</script>");
-            }
+            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -30,25 +26,23 @@ namespace Web_TANyCHEN
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // 调用 DatabaseHelper 检查用户
+            // 调用 DatabaseHelper 验证用户
             DataTable userTable = DatabaseHelper.GetUser(username, password);
 
             if (userTable != null && userTable.Rows.Count > 0)
             {
-                // 获取用户角色和其他信息
+                // 获取用户角色和 Name
                 string role = userTable.Rows[0]["Role"].ToString();
-                string name = userTable.Rows[0]["Username"].ToString(); // 根据数据库字段
-                int id = Convert.ToInt32(userTable.Rows[0]["Id"]);
+                string name = userTable.Rows[0]["Name"].ToString();
 
-                // 根据角色跳转
+                // 根据角色重定向
                 if (role == "doctor")
                 {
                     Response.Redirect("3Doctor.aspx");
                 }
                 else if (role == "patient")
                 {
-                    // 将患者Id和Name传递给患者页面
-                    Response.Redirect($"4Patient.aspx?PatientId={id}&PatientName={name}");
+                    Response.Redirect($"4Patients.aspx?Name={name}");
                 }
                 else
                 {
@@ -57,10 +51,12 @@ namespace Web_TANyCHEN
             }
             else
             {
-                // 用户名或密码错误
+                // 用户名或密码无效
                 Response.Write("<script>alert('用户名或密码错误');</script>");
             }
         }
+
+
 
     }
 }
