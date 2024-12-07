@@ -1,0 +1,8 @@
+# 忽略 Visual Studio 文件
+.vs/
+*.user
+*.suo
+*.log
+*.tmp
+bin/
+obj/
