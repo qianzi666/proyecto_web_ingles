@@ -45,8 +45,17 @@
             font-weight: bold;
         }
     </style>
+    <link rel="stylesheet" href="inicio.css">
 </head>
 <body>
+        <header>
+        <div class="logo">医疗中心 - 患者详情</div>
+        <nav>
+            <ul>
+                <li><a href="2Login.aspx">退出登录</a></li>
+            </ul>
+        </nav>
+    </header>
     <form id="form1" runat="server">
         <div class="container">
             <div class="header">患者信息</div>

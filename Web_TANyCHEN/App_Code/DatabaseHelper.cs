@@ -240,7 +240,7 @@ namespace Web_TANyCHEN
                                 DOB = row["DOB"].ToString(),
                                 Address = row["Address"].ToString(),
                                 Mobile = row["Mobile"].ToString(),
-                                PIN = row["PIN"].ToString()
+                              
                             };
                         }
                         return null;

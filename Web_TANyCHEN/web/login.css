@@ -1,0 +1,110 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../imagen/login.jpg');
+    background-size: cover; /* 图片覆盖整个页面 */
+    background-repeat: no-repeat; /* 防止图片重复 */
+    background-attachment: fixed; /* 背景图片固定，不随页面滚动 */
+    background-position: center; /* 图片居中显示 */
+}
+
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+    header .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+            nav ul li a:hover {
+                text-decoration: underline;
+            }
+
+main {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+}
+
+    main h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 110px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button, .asp-button {
+    padding: 10px 20px;
+    background-color: #004d99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    button:hover, .asp-button:hover {
+        background-color: #003366;
+    }
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #004d99;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+    footer p {
+        margin: 0;
+    }

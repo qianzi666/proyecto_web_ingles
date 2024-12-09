@@ -70,11 +70,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imagen\login.jpg" />
+    <Content Include="imagen\inicio4.jpg" />
+    <Content Include="imagen\inicio2.png" />
+    <Content Include="imagen\inicio1.jpg" />
+    <Content Include="imagen\inicio3.png" />
     <Content Include="web\4Patients.aspx" />
     <Content Include="web\3Doctor.aspx" />
     <Content Include="web\2Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="web\1Index.aspx" />
+    <Content Include="web\doctor.css" />
+    <Content Include="web\inicio.css" />
+    <Content Include="web\login.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="web\4Patients.aspx.cs">

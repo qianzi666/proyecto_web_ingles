@@ -45,8 +45,19 @@
             document.getElementById(modalId).classList.remove('active');
         }
     </script>
+    <link rel="stylesheet" href="doctor.css">
+
+    <link rel="stylesheet" href="inicio.css">
 </head>
 <body>
+        <header>
+        <div class="logo">医疗中心 - 医生管理</div>
+        <nav>
+            <ul>
+                <li><a href="2Login.aspx">退出登录</a></li>
+            </ul>
+        </nav>
+    </header>
     <form id="form1" runat="server">
         <h2>医生管理界面</h2>
 
@@ -163,3 +174,4 @@
     </form>
 </body>
 </html>
+
