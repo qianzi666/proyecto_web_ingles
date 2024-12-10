@@ -154,7 +154,7 @@
                 <table>
                     <tr>
                         <th>Campo</th>
-                        <th>Valor</th>
+                        <th>Dato</th>
                     </tr>
                     <tr>
                         <td>Nombre</td>

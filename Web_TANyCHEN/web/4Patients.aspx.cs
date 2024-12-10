@@ -43,7 +43,7 @@ namespace Web_TANyCHEN
             }
             else
             {
-                lblError.Text = "未找到患者信息。";
+                lblError.Text = "No se encontró la información del paciente.";
             }
         }
 
@@ -61,7 +61,7 @@ namespace Web_TANyCHEN
             {
                 gvMedicalRecords.DataSource = null;
                 gvMedicalRecords.DataBind();
-                lblError.Text += " 暂无医疗记录。";
+                lblError.Text += " No hay registros médicos disponibles.";
             }
         }
 

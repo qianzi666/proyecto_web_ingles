@@ -107,7 +107,7 @@
             border-radius: 4px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: bold;
+           
             text-align: center;
             cursor: pointer;
             color: white;
@@ -140,7 +140,7 @@
         /* 调整按钮容器样式 */
         .button-container {
             display: flex;
-            flex-wrap: wrap; /* 允许换行 */
+           
             gap: 10px; /* 按钮之间的间距 */
         }
 
