@@ -12,7 +12,9 @@
     background-attachment: fixed; /* 背景图片固定，不随页面滚动 */
     background-position: center; /* 图片居中显示 */
 }
-
+.login-div {
+    display: flex; /* 每个标签单独占一行 */
+}
 header {
     background-color: #004d99;
     color: white;
@@ -48,6 +50,7 @@ nav ul {
             }
 
 main {
+    width: 25%;
     max-width: 400px;
     margin: 50px auto;
     background-color: white;
@@ -55,17 +58,17 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    
 }
 
     main h2 {
-        margin-bottom: 20px;
+        margin: 0;
+        margin-bottom: 0px;
         color: #333;
     }
 
 label {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 0px;
     font-weight: bold;
     color: #333;
 }
@@ -74,7 +77,7 @@ input[type="text"],
 input[type="password"] {
     width: calc(100% - 110px);
     padding: 10px;
-    margin-bottom: 20px;
+    
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -108,3 +111,47 @@ footer {
     footer p {
         margin: 0;
     }
+    .login-div {
+        display: flex;
+        flex-direction: column; /* Stack labels and inputs vertically */
+        margin-bottom: 0px; /* Space between fields */
+        text-align: left; /* Align content to the left */
+    }
+
+        .login-div label {
+            margin-bottom: 0px; /* Space between label and input */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .login-div input {
+            width: 100%; /* Inputs take full width */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+    form {
+        display: flex;
+        flex-direction: column; /* Align form elements vertically */
+        gap: 20px; /* Space between form elements */
+        align-items: center; /* Center content horizontally */
+    }
+
+        form button,
+        form .asp-button {
+            padding: 10px 20px;
+            background-color: #004d99;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 0px; /* Space from the last input */
+        }
+
+        form button:hover,
+        form .asp-button:hover {
+            background-color: #003366;
+        }

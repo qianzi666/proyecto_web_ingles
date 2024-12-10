@@ -46,13 +46,13 @@ namespace Web_TANyCHEN
                 }
                 else
                 {
-                    Response.Write("<script>alert('未识别的用户角色');</script>");
+                    Response.Write("<script>alert('Rol de usuario no reconocido');</script>");
                 }
             }
             else
             {
                 // 用户名或密码无效
-                Response.Write("<script>alert('用户名或密码错误');</script>");
+                Response.Write("<script>alert(' Nombre de usuario o contraseña incorrectos');</script>");
             }
         }
 

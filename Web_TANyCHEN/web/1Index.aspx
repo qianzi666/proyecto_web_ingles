@@ -6,19 +6,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>医疗中心</title>
+    <title>Centro medico</title>
     <link rel="stylesheet" href="inicio.css">
 </head>
 <body>
     <header>
-        <div class="logo">医疗中心</div>
+        <div class="logo">Centro medico</div>
         <nav>
             <ul>
-                <li><a href="1Index.aspx">主页</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#services">服务</a></li>
-                <li><a href="#contact">联系我们</a></li>
-                <li><a href="2Login.aspx" class="login-btn">登录</a></li> 
+                <li><a href="1Index.aspx">Inicio</a></li>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#services">Servicio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="2Login.aspx" class="login-btn">Login</a></li> 
             </ul>
         </nav>
     </header>
@@ -26,37 +26,38 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>欢迎来到医疗中心</h1>
-                <p>我们致力于为您提供优质的医疗服务。</p>
-                <a href="#services" class="btn">了解更多</a>
+                <h1>Bienvenido al Centro Médico</h1>
+                <p>Estamos comprometidos a brindarle atención médica de calidad.</p>
+                <a href="#services" class="btn">Obtenga más información</a>
             </div>
         </section>
 
         <section id="about">
-            <h2>关于我们</h2>
-            <p>医疗中心是一家致力于病人健康与幸福的机构。我们提供多种医疗服务，拥有一流的设备和专业的团队。</p>
+            <h2>Sobre Nosotros</h2>
+            <p>El Centro Médico es una institución dedicada a la salud y el bienestar de los pacientes.Ofrecemos una amplia variedad de 
+                servicios médicos, contamos con equipos de primera calidad y un equipo profesional.</p>
         </section>
 
         <section id="services">
-            <h2>我们的服务</h2>
+            <h2>Los servicios que ofrecemos</h2>
             <ul>
-                <li>全科医疗</li>
-                <li>儿科服务</li>
-                <li>心脏病学</li>
-                <li>体检与健康评估</li>
+                <li>Medicina general</li>
+                <li>Servicios pediátricos</li>
+                <li>Cardiología</li>
+                <li>Exámenes médicos y evaluaciones de salud</li>
             </ul>
         </section>
 
         <section id="contact">
-            <h2>联系我们</h2>
-            <p>电话: 123-456-7890</p>
-            <p>邮箱: contact@medicalcenter.com</p>
-            <p>地址: 医疗中心街道 100 号</p>
+            <h2>Contáctenos</h2>
+            <p>Teléfono: 123-456-7890</p>
+            <p>Correo electrónico: contact@medicalcenter.com</p>
+            <p>Dirección: Calle del Centro Médico N° 100</p>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 医疗中心 - 保留所有权利</p>
+        <p>© 2024 Centro Médico - Todos los derechos reservados</p>
     </footer>
 </body>
 </html>

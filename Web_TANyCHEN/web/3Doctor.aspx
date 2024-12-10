@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>医生管理界面</title>
+    <title>Interfaz de gestión para médicos</title>
     <style>
         .container { display: flex; }
         .left-panel, .right-panel {
@@ -72,7 +72,7 @@
 
         .btn-add-patient {
             padding: 10px 12px;
-            background-color: #0056b3;
+            background-color: #004d99;
             color: white;
             /* font-size: 16px; */
             font-weight: bold;
@@ -94,6 +94,62 @@
             transform: scale(0.95); /* Add a pressed effect */
         }
 
+
+
+
+
+
+        /* 通用按钮样式 */
+        .link-button {
+           display: inline-block;
+            /* padding: 8px 12px; */
+            /* margin: 2px; */
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s ease;
+            border: none;
+        }
+
+        /* 各种按钮的颜色 */
+        .link-button.view {
+            background-color: #4CAF50; /* 绿色 - 查看 */
+        }
+
+        .link-button.update {
+            background-color: #004d99; /* 蓝色 - 更新 */
+        }
+
+        .link-button.delete {
+            background-color: #f44336; /* 红色 - 删除 */
+        }
+
+        /* 鼠标悬停和点击效果 */
+        .link-button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .link-button:active {
+            transform: scale(0.95);
+        }
+        /* 调整按钮容器样式 */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* 允许换行 */
+            gap: 10px; /* 按钮之间的间距 */
+        }
+
+        /* 调整每个按钮的宽度和布局 */
+        .button-container .link-button {
+            flex: 1 1 calc(50% - 10px); /* 每个按钮占据 50% 宽度，减去间距 */
+            box-sizing: border-box; /* 包含内边距和边框 */
+        }
+
     </style>
     <script>
         function openModal(modalId) {
@@ -110,21 +166,21 @@
 </head>
 <body>
         <header>
-        <div class="logo">医疗中心 - 医生管理</div>
+        <div class="logo">Centro Médico - Gestión de médicos</div>
         <nav>
             <ul>
-                <li><a href="2Login.aspx">退出登录</a></li>
+                <li><a href="2Login.aspx">Logout</a></li>
             </ul>
         </nav>
     </header>
     <form id="form1" runat="server">
-        <h2>医生管理界面</h2>
+        <h2>Interfaz de gestión para médicos</h2>
 
         <!-- 搜索患者部分 -->
         <div class="form-group">
-            <label for="txtSearchKeyword">搜索患者：</label>
-            <asp:TextBox ID="txtSearchKeyword" runat="server" Placeholder="输入姓名"></asp:TextBox>
-            <asp:Button ID="btnSearch" runat="server" Text="搜索" OnClick="BtnSearch_Click" />
+            <label for="txtSearchKeyword">Buscar pacientes：</label>
+            <asp:TextBox ID="txtSearchKeyword" runat="server" Placeholder="Ingrese el nombre"></asp:TextBox>
+            <asp:Button ID="btnSearch" runat="server" Text="Buscar" OnClick="BtnSearch_Click" />
             <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
         </div>
 
@@ -133,51 +189,54 @@
         <div class="container">
             <!-- 左侧患者列表 -->
             <div class="left-panel">
-                <h3>患者列表</h3>
+                <h3>Lista de pacientes</h3>
                 <asp:GridView ID="gvPatients" runat="server" AutoGenerateColumns="False"
                     AllowPaging="True" PageSize="10" DataKeyNames="Id" OnRowCommand="GvPatients_RowCommand">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" />
-                        <asp:BoundField DataField="Name" HeaderText="姓名" />
-                        <asp:BoundField DataField="DOB" HeaderText="出生日期" />
-                        <asp:BoundField DataField="Address" HeaderText="地址" />
-                        <asp:BoundField DataField="Mobile" HeaderText="手机号" />
-                        <asp:BoundField DataField="PIN" HeaderText="PIN码" />
+                        <asp:BoundField DataField="Name" HeaderText="Nombre" />
+                        <asp:BoundField DataField="DOB" HeaderText="Fecha de nacimiento" />
+                        <asp:BoundField DataField="Address" HeaderText="Dirección" />
+                        <asp:BoundField DataField="Mobile" HeaderText="Número de teléfono " />
+                        <asp:BoundField DataField="PIN" HeaderText="Código PIN" />
                         <asp:TemplateField>
                             <ItemTemplate>
+                               <div class="button-container">
                                 <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
-                                    CommandArgument='<%# Eval("Id") %>' Text="查看记录" />
+                                    CommandArgument='<%# Eval("Id") %>' Text="Ver registros" CssClass="link-button view" />
                                 <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
-                                    CommandArgument='<%# Eval("Id") %>' Text="更新患者" />
+                                    CommandArgument='<%# Eval("Id") %>' Text="Actualizar paciente" CssClass="link-button update" />
                                 <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
-                                    CommandArgument='<%# Eval("Id") %>' Text="删除患者" />
+                                    CommandArgument='<%# Eval("Id") %>' Text="Eliminar paciente" CssClass="link-button delete" />
+                            </div>
+
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
 
-              <asp:Button ID="btnAddPatient" runat="server" Text="添加患者" CssClass="btn btn-add-patient" OnClientClick="openModal('addPatientModal'); return false;" />
+              <asp:Button ID="btnAddPatient" runat="server" Text="Añadir paciente" CssClass="btn btn-add-patient" OnClientClick="openModal('addPatientModal'); return false;" />
 
             </div>
 
             <!-- 右侧医疗记录 -->
             <div class="right-panel">
-                <h3>医疗记录</h3>
+                <h3>Historial médico</h3>
                <asp:GridView ID="gvMedicalRecords" runat="server" AutoGenerateColumns="False" OnRowCommand="GvMedicalRecords_RowCommand">
     <Columns>
-        <asp:BoundField DataField="Id" HeaderText="记录ID" />
-        <asp:BoundField DataField="AppointmentDate" HeaderText="预约日期" />
-        <asp:BoundField DataField="Diagnosis" HeaderText="诊断" />
-        <asp:BoundField DataField="Treatment" HeaderText="治疗方案" />
+        <asp:BoundField DataField="Id" HeaderText="ID de registro" />
+        <asp:BoundField DataField="AppointmentDate" HeaderText="Fecha de la cita" />
+        <asp:BoundField DataField="Diagnosis" HeaderText="Diagnóstico" />
+        <asp:BoundField DataField="Treatment" HeaderText="Tratamiento" />
         <asp:TemplateField>
             <ItemTemplate>
         <div style="display: flex; gap: 10px;">
         <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
-            CommandArgument='<%# Eval("Id") %>' Text="查看记录" CssClass="btn btn-view" />
+            CommandArgument='<%# Eval("Id") %>' Text="Ver registros" CssClass="btn btn-view" />
         <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
-            CommandArgument='<%# Eval("Id") %>' Text="更新患者" CssClass="btn btn-update" />
+            CommandArgument='<%# Eval("Id") %>' Text="Actualizar paciente" CssClass="btn btn-update" />
         <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
-            CommandArgument='<%# Eval("Id") %>' Text="删除患者" CssClass="btn btn-delete" />
+            CommandArgument='<%# Eval("Id") %>' Text="Eliminar paciente" CssClass="btn btn-delete" />
     </div>
 </ItemTemplate>
 
@@ -186,7 +245,7 @@
 </asp:GridView>
 
 <!-- 添加医疗记录按钮 -->
-<asp:Button ID="btnAddMedicalRecord" runat="server" Text="添加记录" CssClass="btn btn-add-patient" OnClientClick="openModal('addRecordModal'); return false;" />
+<asp:Button ID="btnAddMedicalRecord" runat="server" Text="Agregar registro" CssClass="btn btn-add-patient" OnClientClick="openModal('addRecordModal'); return false;" />
 
             </div>
         </div>
@@ -195,43 +254,43 @@
 
         <!-- 添加患者弹窗 -->
         <div id="addPatientModal" class="modal">
-            <div class="modal-header">添加患者</div>
+            <div class="modal-header">Añadir paciente</div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalPatientName" runat="server" Placeholder="姓名"></asp:TextBox>
+                <asp:TextBox ID="txtModalPatientName" runat="server" Placeholder="Nombre"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalPatientDOB" runat="server" Placeholder="出生日期"></asp:TextBox>
+                <asp:TextBox ID="txtModalPatientDOB" runat="server" Placeholder="Fecha de nacimiento"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalPatientAddress" runat="server" Placeholder="地址"></asp:TextBox>
+                <asp:TextBox ID="txtModalPatientAddress" runat="server" Placeholder="Dirección"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalPatientMobile" runat="server" Placeholder="手机号"></asp:TextBox>
+                <asp:TextBox ID="txtModalPatientMobile" runat="server" Placeholder="Número de teléfono móvil"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalPatientPIN" runat="server" Placeholder="PIN码"></asp:TextBox>
+                <asp:TextBox ID="txtModalPatientPIN" runat="server" Placeholder="Código PIN"></asp:TextBox>
             </div>
             <div class="modal-actions">
-                <asp:Button ID="btnModalAddPatient" runat="server" Text="提交" OnClick="BtnAddPatient_Click" />
-                <button type="button" onclick="closeModal('addPatientModal')">取消</button>
+                <asp:Button ID="btnModalAddPatient" runat="server" Text="Enviar" OnClick="BtnAddPatient_Click" />
+                <button type="button" onclick="closeModal('addPatientModal')">Cancelar</button>
             </div>
         </div>
 
         <!-- 添加医疗记录弹窗 -->
         <div id="addRecordModal" class="modal">
-            <div class="modal-header">添加医疗记录</div>
+            <div class="modal-header">Añadir historial médico</div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalRecordDate" runat="server" Placeholder="预约日期"></asp:TextBox>
+                <asp:TextBox ID="txtModalRecordDate" runat="server" Placeholder="Fecha de la cita"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalRecordDiagnosis" runat="server" Placeholder="诊断"></asp:TextBox>
+                <asp:TextBox ID="txtModalRecordDiagnosis" runat="server" Placeholder="Diagnóstico"></asp:TextBox>
             </div>
             <div class="form-group">
-                <asp:TextBox ID="txtModalRecordTreatment" runat="server" Placeholder="治疗方案"></asp:TextBox>
+                <asp:TextBox ID="txtModalRecordTreatment" runat="server" Placeholder="Tratamiento"></asp:TextBox>
             </div>
             <div class="modal-actions">
-                <asp:Button ID="btnModalAddRecord" runat="server" Text="提交" OnClick="BtnAddMedicalRecord_Click" />
-                <button type="button" onclick="closeModal('addRecordModal')">取消</button>
+                <asp:Button ID="btnModalAddRecord" runat="server" Text="Enviar" OnClick="BtnAddMedicalRecord_Click" />
+                <button type="button" onclick="closeModal('addRecordModal')">Cancelar</button>
             </div>
         </div>
     </form>
