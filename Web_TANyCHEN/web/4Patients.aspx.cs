@@ -32,10 +32,10 @@ namespace Web_TANyCHEN
             if (patientInfo != null && patientInfo.Rows.Count > 0)
             {
                 DataRow row = patientInfo.Rows[0];
-                lblName.Text = "姓名: " + row["Name"];
-                lblDOB.Text = "出生日期: " + row["DOB"];
-                lblAddress.Text = "地址: " + row["Address"];
-                lblMobile.Text = "手机号: " + row["Mobile"];
+                lblName.Text = row["Name"].ToString(); // 仅显示姓名
+                lblDOB.Text = row["DOB"].ToString();   // 仅显示出生日期
+                lblAddress.Text = row["Address"].ToString(); // 仅显示地址
+                lblMobile.Text = row["Mobile"].ToString();   // 仅显示手机号
 
                 // 根据 PatientId 获取医疗记录
                 int patientId = Convert.ToInt32(row["Id"]);

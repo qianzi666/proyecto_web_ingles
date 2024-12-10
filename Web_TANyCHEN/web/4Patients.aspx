@@ -5,44 +5,129 @@
 <head runat="server">
     <title>患者页面</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         .container {
             width: 80%;
-            margin: auto;
+            margin: 30px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .header {
             font-size: 24px;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
+            color: #333;
         }
+
         .section {
             margin-bottom: 20px;
         }
+
         .section h3 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: #004d99;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
         }
+
         table, th, td {
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
         }
+
         th, td {
-            padding: 10px;
+            padding: 8px;
             text-align: left;
         }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
         .actions {
             text-align: right;
             margin-top: 20px;
         }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #004d99;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #003366;
+        }
+
         .error {
             color: red;
             font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #004d99;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
     <link rel="stylesheet" href="inicio.css">
@@ -65,10 +150,28 @@
             <!-- 患者基本信息部分 -->
             <div class="section">
                 <h3>基本信息</h3>
-                <asp:Label ID="lblName" runat="server" Text="姓名: "></asp:Label><br />
-                <asp:Label ID="lblDOB" runat="server" Text="出生日期: "></asp:Label><br />
-                <asp:Label ID="lblAddress" runat="server" Text="地址: "></asp:Label><br />
-                <asp:Label ID="lblMobile" runat="server" Text="手机号: "></asp:Label>
+                <table>
+                    <tr>
+                        <th>字段</th>
+                        <th>值</th>
+                    </tr>
+                    <tr>
+                        <td>姓名</td>
+                        <td><asp:Label ID="lblName" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>出生日期</td>
+                        <td><asp:Label ID="lblDOB" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>地址</td>
+                        <td><asp:Label ID="lblAddress" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td>手机号</td>
+                        <td><asp:Label ID="lblMobile" runat="server" Text=""></asp:Label></td>
+                    </tr>
+                </table>
             </div>
 
             <!-- 医疗记录部分 -->
@@ -85,7 +188,7 @@
 
             <!-- 返回按钮 -->
             <div class="actions">
-                <asp:Button ID="btnLogout" runat="server" Text="退出登录" OnClick="BtnLogout_Click" />
+                <asp:Button ID="btnLogout" runat="server" Text="退出登录" OnClick="BtnLogout_Click" CssClass="btn" />
             </div>
         </div>
     </form>

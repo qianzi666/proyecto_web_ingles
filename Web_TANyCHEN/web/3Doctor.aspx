@@ -35,6 +35,65 @@
             margin-top: 10px;
             text-align: right;
         }
+
+
+
+        .btn {
+            padding: 5px 10px;
+            text-align: center;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-view {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .btn-update {
+            background-color: #2196F3; /* Blue */
+        }
+
+        .btn-delete {
+            background-color: #f44336; /* Red */
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+
+
+
+
+        .btn-add-patient {
+            padding: 10px 12px;
+            background-color: #0056b3;
+            color: white;
+            /* font-size: 16px; */
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-add-patient:hover {
+            background-color: #45a049; /* Slightly darker green */
+            transform: scale(1.05); /* Add a hover effect */
+        }
+
+        .btn-add-patient:active {
+            background-color: #3e8e41; /* Even darker green when clicked */
+            transform: scale(0.95); /* Add a pressed effect */
+        }
+
     </style>
     <script>
         function openModal(modalId) {
@@ -97,7 +156,8 @@
                     </Columns>
                 </asp:GridView>
 
-                <asp:Button ID="btnAddPatient" runat="server" Text="添加患者" OnClientClick="openModal('addPatientModal'); return false;" />
+              <asp:Button ID="btnAddPatient" runat="server" Text="添加患者" CssClass="btn btn-add-patient" OnClientClick="openModal('addPatientModal'); return false;" />
+
             </div>
 
             <!-- 右侧医疗记录 -->
@@ -111,19 +171,22 @@
         <asp:BoundField DataField="Treatment" HeaderText="治疗方案" />
         <asp:TemplateField>
             <ItemTemplate>
-                <!-- 更新记录 -->
-                <asp:LinkButton ID="btnUpdateRecord" runat="server" CommandName="UpdateRecord"
-                    CommandArgument='<%# Eval("Id") %>' Text="更新记录" />
-                <!-- 删除记录 -->
-                <asp:LinkButton ID="btnDeleteRecord" runat="server" CommandName="DeleteRecord"
-                    CommandArgument='<%# Eval("Id") %>' Text="删除记录" />
-            </ItemTemplate>
+        <div style="display: flex; gap: 10px;">
+        <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
+            CommandArgument='<%# Eval("Id") %>' Text="查看记录" CssClass="btn btn-view" />
+        <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
+            CommandArgument='<%# Eval("Id") %>' Text="更新患者" CssClass="btn btn-update" />
+        <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
+            CommandArgument='<%# Eval("Id") %>' Text="删除患者" CssClass="btn btn-delete" />
+    </div>
+</ItemTemplate>
+
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
 
 <!-- 添加医疗记录按钮 -->
-<asp:Button ID="btnAddMedicalRecord" runat="server" Text="添加记录" OnClientClick="openModal('addRecordModal'); return false;" />
+<asp:Button ID="btnAddMedicalRecord" runat="server" Text="添加记录" CssClass="btn btn-add-patient" OnClientClick="openModal('addRecordModal'); return false;" />
 
             </div>
         </div>
