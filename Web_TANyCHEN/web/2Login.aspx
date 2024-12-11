@@ -10,17 +10,19 @@
     <title>Login</title>
      <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="inicio.css">
+    <script src="inicio.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">Medical centero</div>
+   <header>
+        <div class="logo">Medical Center</div>
+        <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="1Index.aspx">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="2Login.aspx" class="login-btn">Login</a></li> 
+                <li><a href="2Login.aspx" class="login-btn">Login</a></li>
             </ul>
         </nav>
     </header>

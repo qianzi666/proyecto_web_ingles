@@ -82,6 +82,7 @@
     <Content Include="web\1Index.aspx" />
     <Content Include="web\doctor.css" />
     <Content Include="web\inicio.css" />
+    <Content Include="web\inicio.js" />
     <Content Include="web\login.css" />
   </ItemGroup>
   <ItemGroup>

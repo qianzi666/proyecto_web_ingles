@@ -22,10 +22,6 @@ header {
     text-align: center;
 }
 
-    header .logo {
-        font-size: 24px;
-        font-weight: bold;
-    }
 
 nav ul {
     list-style: none;
@@ -50,7 +46,7 @@ nav ul {
             }
 
 main {
-    width: 25%;
+    width: 50%;
     max-width: 400px;
     margin: 50px auto;
     background-color: white;
@@ -155,3 +151,30 @@ footer {
         form .asp-button:hover {
             background-color: #003366;
         }
+/* Responsive Styles */
+@media (max-width: 768px) {
+    main {
+        width: 70%;
+        padding: 15px;
+    }
+
+    button, .asp-button {
+       
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        
+        padding: 10px;
+    }
+
+        main h2 {
+            font-size: 20px;
+        }
+
+    button, .asp-button {
+        font-size: 14px;
+    }
+}
