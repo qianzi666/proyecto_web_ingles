@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Página del paciente</title>
+    <title>Patient Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -135,7 +135,7 @@
 </head>
 <body>
         <header>
-        <div class="logo">Centro Médico - Detalles del paciente<</div>
+        <div class="logo">Medical Center - Patient Details</div>
         <nav>
             <ul>
                 <li><a href="2Login.aspx">Logout</a></li>
@@ -144,32 +144,32 @@
     </header>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="header">Información del paciente</div>
+            <div class="header">Patient Information</div>
 
             <asp:Label ID="lblError" runat="server" CssClass="error"></asp:Label>
 
             <!-- 患者基本信息部分 -->
             <div class="section">
-                <h3>Información básica</h3>
+                <h3>Basic Information</h3>
                 <table>
                     <tr>
-                        <th>Campo</th>
-                        <th>Dato</th>
+                        <th>Field</th>
+                        <th>Data</th>
                     </tr>
                     <tr>
-                        <td>Nombre</td>
+                        <td>Name</td>
                         <td><asp:Label ID="lblName" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td>Fecha de nacimiento</td>
+                        <td>Date of Birth</td>
                         <td><asp:Label ID="lblDOB" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td>Dirección</td>
+                        <td>Address</td>
                         <td><asp:Label ID="lblAddress" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td>Número de teléfono móvil</td>
+                        <td>Mobile Phone Number</td>
                         <td><asp:Label ID="lblMobile" runat="server" Text=""></asp:Label></td>
                     </tr>
                 </table>
@@ -177,12 +177,12 @@
 
             <!-- 医疗记录部分 -->
             <div class="section">
-                <h3>Historial médico</h3>
+                <h3>Medical History</h3>
                 <asp:GridView ID="gvMedicalRecords" runat="server" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="AppointmentDate" HeaderText="Fecha de la cita" />
-                        <asp:BoundField DataField="Diagnosis" HeaderText="Diagnóstico" />
-                        <asp:BoundField DataField="Treatment" HeaderText=" Tratamiento" />
+                        <asp:BoundField DataField="AppointmentDate" HeaderText="Appointment Date  " />
+                        <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
+                        <asp:BoundField DataField="Treatment" HeaderText=" Treatment" />
                     </Columns>
                 </asp:GridView>
             </div>

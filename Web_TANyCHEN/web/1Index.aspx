@@ -6,18 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro medico</title>
+    <title>Medical center</title>
     <link rel="stylesheet" href="inicio.css">
 </head>
 <body>
     <header>
-        <div class="logo">Centro medico</div>
+        <div class="logo">Medical centero</div>
         <nav>
             <ul>
-                <li><a href="1Index.aspx">Inicio</a></li>
-                <li><a href="#about">Sobre Nosotros</a></li>
-                <li><a href="#services">Servicio</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="1Index.aspx">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="2Login.aspx" class="login-btn">Login</a></li> 
             </ul>
         </nav>
@@ -26,38 +26,38 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Bienvenido al Centro Médico</h1>
-                <p>Estamos comprometidos a brindarle atención médica de calidad.</p>
-                <a href="#services" class="btn">Obtenga más información</a>
+                <h1>Welcome to the Medical Center</h1>
+                <p>We are committed to providing you with quality medical care.</p>
+                <a href="#services" class="btn">Learn More</a>
             </div>
         </section>
 
         <section id="about">
-            <h2>Sobre Nosotros</h2>
-            <p>El Centro Médico es una institución dedicada a la salud y el bienestar de los pacientes.Ofrecemos una amplia variedad de 
-                servicios médicos, contamos con equipos de primera calidad y un equipo profesional.</p>
-        </section>
+            <h2>About Us</h2>
+            <p>The Medical Center is an institution dedicated to the health and well-being of patients. We offer a wide range of 
+                medical services, with top-quality equipment and a professional team.</p>
+            </section>
 
         <section id="services">
-            <h2>Los servicios que ofrecemos</h2>
+            <h2>The Services We Offer</h2>
             <ul>
-                <li>Medicina general</li>
-                <li>Servicios pediátricos</li>
-                <li>Cardiología</li>
-                <li>Exámenes médicos y evaluaciones de salud</li>
+                <li>General Medicine</li>
+                <li>Pediatric Services</li>
+                <li>Cardiology</li>
+                <li>Medical Exams and Health Assessments</li>
             </ul>
         </section>
 
         <section id="contact">
-            <h2>Contáctenos</h2>
-            <p>Teléfono: 123-456-7890</p>
-            <p>Correo electrónico: contact@medicalcenter.com</p>
-            <p>Dirección: Calle del Centro Médico N° 100</p>
+            <<h2>Contact Us</h2>
+            <p>Phone: 123-456-7890</p>
+            <p>Email: contact@medicalcenter.com</p>
+            <p>Address: Medical Center Street No. 100</p>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Centro Médico - Todos los derechos reservados</p>
+        <p>© 2024 Medical Center - All Rights Reserved</p>
     </footer>
 </body>
 </html>

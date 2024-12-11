@@ -13,13 +13,13 @@
 </head>
 <body>
     <header>
-        <div class="logo">Centro medico</div>
+        <div class="logo">Medical centero</div>
         <nav>
             <ul>
-                <li><a href="1Index.aspx">Inicio</a></li>
-                <li><a href="#about">Sobre Nosotros</a></li>
-                <li><a href="#services">Servicio</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="1Index.aspx">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="2Login.aspx" class="login-btn">Login</a></li> 
             </ul>
         </nav>
@@ -29,13 +29,13 @@
     <form id="form1" runat="server">
         <h2>Login</h2>
         <div class="login-div">
-            <label for="txtUsername">Nombre de usuario:</label>
-            <asp:TextBox ID="txtUsername" runat="server" Placeholder="Nombre de usuario"></asp:TextBox>
+            <label for="txtUsername">Username:</label>
+            <asp:TextBox ID="txtUsername" runat="server" Placeholder="Username"></asp:TextBox>
         </div>
 
         <div class="login-div">
-            <label for="txtPassword">Contraseña:</label>
-            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Placeholder="Contraseña"></asp:TextBox>
+            <label for="txtPassword">Password:</label>
+            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Placeholder="Password"></asp:TextBox>
         </div>
 
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="asp-button" />
@@ -45,7 +45,7 @@
     </main>
 
     <footer>
-       <p>© 2024 Centro Médico - Todos los derechos reservados</p>
+        <p>© 2024 Medical Center - All Rights Reserved</p>
     </footer>
 </body>
 </html>
