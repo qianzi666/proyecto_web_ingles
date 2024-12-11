@@ -5,39 +5,6 @@
 <head runat="server">
     <title>Management Interface for Doctors</title>
     <style>
-        .container { display: flex; }
-        .left-panel, .right-panel {
-            width: 50%;
-            padding: 10px;
-        }
-        .form-group {
-            margin-bottom: 10px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .modal.active {
-            display: block;
-        }
-        .modal-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .modal-actions {
-            margin-top: 10px;
-            text-align: right;
-        }
-
-
-
         .btn {
             padding: 5px 10px;
             text-align: center;
@@ -65,10 +32,6 @@
         .btn:hover {
             opacity: 0.9;
         }
-
-
-
-
 
         .btn-add-patient {
             padding: 10px 12px;
@@ -99,56 +62,22 @@
 
 
 
-        /* 通用按钮样式 */
-        .link-button {
-           display: inline-block;
-            /* padding: 8px 12px; */
-            /* margin: 2px; */
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
-           
-            text-align: center;
-            cursor: pointer;
-            color: white;
-            transition: background-color 0.3s, transform 0.2s ease;
-            border: none;
-        }
 
-        /* 各种按钮的颜色 */
-        .link-button.view {
-            background-color: #4CAF50; /* 绿色 - 查看 */
-        }
 
-        .link-button.update {
-            background-color: #004d99; /* 蓝色 - 更新 */
-        }
 
-        .link-button.delete {
-            background-color: #f44336; /* 红色 - 删除 */
-        }
 
-        /* 鼠标悬停和点击效果 */
-        .link-button:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
-        }
 
-        .link-button:active {
-            transform: scale(0.95);
-        }
-        /* 调整按钮容器样式 */
-        .button-container {
-            display: flex;
-           
-            gap: 10px; /* 按钮之间的间距 */
-        }
 
-        /* 调整每个按钮的宽度和布局 */
-        .button-container .link-button {
-            flex: 1 1 calc(50% - 10px); /* 每个按钮占据 50% 宽度，减去间距 */
-            box-sizing: border-box; /* 包含内边距和边框 */
-        }
+
+
+
+
+
+
+
+
+
+
 
     </style>
     <script>
@@ -223,34 +152,34 @@
             <div class="right-panel">
                 <h3>Medical History</h3>
                <asp:GridView ID="gvMedicalRecords" runat="server" AutoGenerateColumns="False" OnRowCommand="GvMedicalRecords_RowCommand">
-    <Columns>
-        <asp:BoundField DataField="Id" HeaderText="Record ID" />
-        <asp:BoundField DataField="AppointmentDate" HeaderText="Appointment Date " />
-        <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis " />
-        <asp:BoundField DataField="Treatment" HeaderText="Treatment" />
-        <asp:TemplateField>
-            <ItemTemplate>
-        <div style="display: flex; gap: 10px;">
-        <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
-            CommandArgument='<%# Eval("Id") %>' Text="View Records " CssClass="btn btn-view" />
-        <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
-            CommandArgument='<%# Eval("Id") %>' Text="Update Patient" CssClass="btn btn-update" />
-        <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
-            CommandArgument='<%# Eval("Id") %>' Text="Delete Patient  " CssClass="btn btn-delete" />
-    </div>
-</ItemTemplate>
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Record ID" />
+                    <asp:BoundField DataField="AppointmentDate" HeaderText="Appointment Date " />
+                    <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis " />
+                    <asp:BoundField DataField="Treatment" HeaderText="Treatment" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                    <div style="display: flex; gap: 10px;">
+                    <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
+                        CommandArgument='<%# Eval("Id") %>' Text="View Records " CssClass="btn btn-view" />
+                    <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
+                        CommandArgument='<%# Eval("Id") %>' Text="Update Patient" CssClass="btn btn-update" />
+                    <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
+                        CommandArgument='<%# Eval("Id") %>' Text="Delete Patient  " CssClass="btn btn-delete" />
+                </div>
+            </ItemTemplate>
 
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
 
-<!-- 添加医疗记录按钮 -->
-<asp:Button ID="btnAddMedicalRecord" runat="server" Text="Add Record  " CssClass="btn btn-add-patient" OnClientClick="openModal('addRecordModal'); return false;" />
+            <!-- 添加医疗记录按钮 -->
+            <asp:Button ID="btnAddMedicalRecord" runat="server" Text="Add Record  " CssClass="btn btn-add-patient" OnClientClick="openModal('addRecordModal'); return false;" />
 
             </div>
         </div>
         <asp:HiddenField ID="hfSelectedPatientId" runat="server" />
-<asp:HiddenField ID="hfSelectedRecordId" runat="server" />
+        <asp:HiddenField ID="hfSelectedRecordId" runat="server" />
 
         <!-- 添加患者弹窗 -->
         <div id="addPatientModal" class="modal">
