@@ -32,7 +32,7 @@ namespace Web_TANyCHEN
                 }
             }
         }
-
+                                                                                                                   
 
 
         public static DataTable GetAllPatients()
