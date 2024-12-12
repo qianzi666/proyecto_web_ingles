@@ -148,6 +148,26 @@ namespace Web_TANyCHEN
                 {
                     try
                     {
+                        // 获取对应的 PIN 值，用于删除 Users 表数据
+                        string getPinQuery = "SELECT PIN FROM Patients WHERE Id = @PatientId";
+                        string patientPin = null;
+                        using (SQLiteCommand getPinCmd = new SQLiteCommand(getPinQuery, conn, transaction))
+                        {
+                            getPinCmd.Parameters.AddWithValue("@PatientId", patientId);
+                            patientPin = getPinCmd.ExecuteScalar()?.ToString();
+                        }
+
+                        if (!string.IsNullOrEmpty(patientPin))
+                        {
+                            // 删除 Users 表中的对应数据
+                            string deleteUserQuery = "DELETE FROM Users WHERE Username = @Username";
+                            using (SQLiteCommand deleteUserCmd = new SQLiteCommand(deleteUserQuery, conn, transaction))
+                            {
+                                deleteUserCmd.Parameters.AddWithValue("@Username", patientPin);
+                                deleteUserCmd.ExecuteNonQuery();
+                            }
+                        }
+
                         // 删除患者的医疗记录
                         string deleteRecordsQuery = "DELETE FROM MedicalRecords WHERE PatientId = @PatientId";
                         using (SQLiteCommand deleteRecordsCmd = new SQLiteCommand(deleteRecordsQuery, conn, transaction))
@@ -176,6 +196,7 @@ namespace Web_TANyCHEN
                 }
             }
         }
+
 
 
         public static void CreateMedicalRecord(MedicalRecord record)
