@@ -35,13 +35,16 @@
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="hero">
+            <div class="back">
             <h2>About Us</h2>
             <p>The Medical Center is an institution dedicated to the health and well-being of patients. We offer a wide range of 
                 medical services, with top-quality equipment and a professional team.</p>
+            </div>
             </section>
 
-        <section id="services">
+        <section id="services" class="hero">
+            <div class="back">
             <h2>The Services We Offer</h2>
             <ul>
                 <li>General Medicine</li>
@@ -49,13 +52,16 @@
                 <li>Cardiology</li>
                 <li>Medical Exams and Health Assessments</li>
             </ul>
+                </div>
         </section>
 
-        <section id="contact">
-            <<h2>Contact Us</h2>
+        <section id="contact" class="hero">
+             <div class="back">
+            <h2>Contact Us</h2>
             <p>Phone: 123-456-7890</p>
             <p>Email: contact@medicalcenter.com</p>
             <p>Address: Medical Center Street No. 100</p>
+            </div>
         </section>
     </main>
 

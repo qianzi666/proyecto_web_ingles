@@ -6,15 +6,20 @@
     <title>Management Interface for Doctors</title>
     <style>
         .btn {
-            padding: 5px 10px;
-            text-align: center;
-            border-radius: 4px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
+                justify-content: center;
+    align-items: center;
+    display: flex
+;
+    max-height: 55px;
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    border: none;
         }
 
         .btn-view {
@@ -56,28 +61,6 @@
             background-color: #3e8e41; /* Even darker green when clicked */
             transform: scale(0.95); /* Add a pressed effect */
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </style>
     <script>
@@ -158,16 +141,16 @@
                     <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis " />
                     <asp:BoundField DataField="Treatment" HeaderText="Treatment" />
                     <asp:TemplateField>
-                        <ItemTemplate>
-                    <div style="display: flex; gap: 10px;">
-                    <asp:LinkButton ID="btnViewRecords" runat="server" CommandName="ViewRecords"
-                        CommandArgument='<%# Eval("Id") %>' Text="View Records " CssClass="btn btn-view" />
-                    <asp:LinkButton ID="btnUpdatePatient" runat="server" CommandName="UpdatePatient"
-                        CommandArgument='<%# Eval("Id") %>' Text="Update Patient" CssClass="btn btn-update" />
-                    <asp:LinkButton ID="btnDeletePatient" runat="server" CommandName="DeletePatient"
-                        CommandArgument='<%# Eval("Id") %>' Text="Delete Patient  " CssClass="btn btn-delete" />
-                </div>
-            </ItemTemplate>
+                     <ItemTemplate>
+                          <div style="display: flex; gap: 10px;">
+                        <!-- 更新记录 -->
+                        <asp:LinkButton ID="btnUpdateRecord" runat="server" CommandName="UpdateRecord"
+                            CommandArgument='<%# Eval("Id") %>' Text="Update Record" CssClass="btn btn-view" />
+                        <!-- 删除记录 -->
+                        <asp:LinkButton ID="btnDeleteRecord" runat="server" CommandName="DeleteRecord"
+                            CommandArgument='<%# Eval("Id") %>' Text="Deleting Records" CssClass="btn btn-delete" />
+                          </div>
+                    </ItemTemplate>
 
                     </asp:TemplateField>
                 </Columns>

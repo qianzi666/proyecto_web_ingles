@@ -16,7 +16,7 @@ header {
 }
 
     header .logo {
-        font-size: 24px;
+        font-size: 28px;
         font-weight: bold;
     }
 
@@ -72,7 +72,7 @@ nav ul {
 }
 
     .hero-content h1 {
-        font-size: 2.5em;
+        font-size: 3em;
         margin-bottom: 10px;
     }
 
@@ -97,12 +97,13 @@ section {
 }
 
 #about, #services, #contact {
+    font-size: 20px;
     height: 300px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 50px;
-    color: #004d99;
+    color: white;
     text-align: center;
 }
 
@@ -173,4 +174,12 @@ footer {
             margin: 10px 0;
             text-align: center;
         }
+}
+
+
+.back {
+    width: 60%;
+    background-color: rgb(0 0 0 / 37%);
+    padding: 20px;
+    border-radius: 10px;
 }
