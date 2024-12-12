@@ -31,11 +31,13 @@ namespace Web_TANyCHEN
 
             if (userTable != null && userTable.Rows.Count > 0)
             {
-                // 获取用户角色和 Name
                 string role = userTable.Rows[0]["Role"].ToString();
                 string name = userTable.Rows[0]["Name"].ToString();
 
-                // 根据角色重定向
+                // 登录成功，存储Session信息
+                Session["Username"] = username; // 将登录的用户名存入Session
+                Session["Role"] = role;          // 将用户角色存入Session
+
                 if (role == "doctor")
                 {
                     Response.Redirect("3Doctor.aspx");
@@ -54,6 +56,7 @@ namespace Web_TANyCHEN
                 // 用户名或密码无效
                 Response.Write("<script>alert(' Nombre de usuario o contraseña incorrectos');</script>");
             }
+
         }
 
 

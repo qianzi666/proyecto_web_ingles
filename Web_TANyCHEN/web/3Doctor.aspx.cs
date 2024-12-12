@@ -4,6 +4,7 @@ using System.Web.UI;
 using System.Data;
 using System.Web.UI.WebControls;
 using Web_TANyCHEN;
+using System.Web;
 
 namespace Web_TANyCHEN
 {
@@ -11,6 +12,16 @@ namespace Web_TANyCHEN
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            Response.Cache.SetNoStore();
+
+            if (Session["Username"] == null)
+            {
+                Response.Redirect("2Login.aspx");
+                return;
+            }
+
             if (!IsPostBack)
             {
                 BindPatients();
@@ -145,21 +156,44 @@ namespace Web_TANyCHEN
                 PIN = txtModalPatientPIN.Text.Trim()
             };
 
-            // 新增患者时不需要检查 hfSelectedPatientId.Value
             if (string.IsNullOrEmpty(hfSelectedPatientId.Value))
             {
+                // 没有选中患者ID，则表示创建新患者
                 DatabaseHelper.CreatePatient(newPatient);
             }
             else
             {
+                // 存在hfSelectedPatientId的值，则表示更新现有患者
                 newPatient.Id = Convert.ToInt32(hfSelectedPatientId.Value);
                 DatabaseHelper.UpdatePatient(newPatient);
-                hfSelectedPatientId.Value = string.Empty; // 清空选中的患者 ID
+
+                // 更新后清空ID
+                hfSelectedPatientId.Value = string.Empty;
             }
 
-            BindPatients(); // 重新绑定列表
+            BindPatients(); // 重新刷新患者列表
             closeModal("addPatientModal");
         }
+
+
+
+        protected void btnOpenAddPatientModal_Click(object sender, EventArgs e)
+        {
+            // 清空当前选中的患者ID，使其成为添加新患者的模式
+            hfSelectedPatientId.Value = string.Empty;
+
+            // 清空输入框中的数据，确保是新输入
+            txtModalPatientName.Text = string.Empty;
+            txtModalPatientDOB.Text = string.Empty;
+            txtModalPatientAddress.Text = string.Empty;
+            txtModalPatientMobile.Text = string.Empty;
+            txtModalPatientPIN.Text = string.Empty;
+
+            // 调用打开弹窗的方法
+            openModal("addPatientModal");
+        }
+
+
 
 
 

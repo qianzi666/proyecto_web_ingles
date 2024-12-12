@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Web;
 using System.Web.UI;
 
 namespace Web_TANyCHEN
@@ -7,7 +9,22 @@ namespace Web_TANyCHEN
     public partial class _4Patients : Page
     {
         protected void Page_Load(object sender, EventArgs e)
+
+
         {
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            Response.Cache.SetNoStore();
+
+            if (Session["Username"] == null)
+            {
+                Response.Redirect("2Login.aspx");
+                return;
+            }
+
+       
+
             if (!IsPostBack)
             {
                 // 从 QueryString 获取 Name

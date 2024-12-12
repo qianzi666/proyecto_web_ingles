@@ -32,7 +32,7 @@ namespace Web_TANyCHEN
                 }
             }
         }
-                                                                                                                   
+
 
 
         public static DataTable GetAllPatients()
@@ -105,6 +105,15 @@ namespace Web_TANyCHEN
                     cmd.Parameters.AddWithValue("@Mobile", patient.Mobile);
                     cmd.Parameters.AddWithValue("@PIN", patient.PIN);
                     cmd.ExecuteNonQuery();
+
+
+                    string userQuery = "INSERT INTO Users (Username, Name) VALUES (@Username, @Name)";
+                    using (SQLiteCommand userCmd = new SQLiteCommand(userQuery, conn))
+                    {
+                        userCmd.Parameters.AddWithValue("@Username", patient.PIN);
+                        userCmd.Parameters.AddWithValue("@Name", patient.Name);
+                        userCmd.ExecuteNonQuery();
+                    }
                 }
             }
         }

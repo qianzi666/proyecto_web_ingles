@@ -127,7 +127,8 @@
                     </Columns>
                 </asp:GridView>
 
-              <asp:Button ID="btnAddPatient" runat="server" Text="Add Patient" CssClass="btn btn-add-patient" OnClientClick="openModal('addPatientModal'); return false;" />
+             <asp:Button ID="btnAddPatient" runat="server" Text="Add Patient" CssClass="btn btn-add-patient" OnClick="btnOpenAddPatientModal_Click" />
+
 
             </div>
 
