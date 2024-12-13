@@ -27,7 +27,7 @@ namespace Web_TANyCHEN
 
             if (!IsPostBack)
             {
-                // 从 QueryString 获取 Name
+                
                 string name = Request.QueryString["Name"];
 
                 if (string.IsNullOrEmpty(name))
@@ -43,18 +43,18 @@ namespace Web_TANyCHEN
 
         private void BindPatientInfo(string name)
         {
-            // 根据 Name 获取患者信息
+            
             DataTable patientInfo = DatabaseHelper.GetPatientByName(name);
 
             if (patientInfo != null && patientInfo.Rows.Count > 0)
             {
                 DataRow row = patientInfo.Rows[0];
-                lblName.Text = row["Name"].ToString(); // 仅显示姓名
-                lblDOB.Text = row["DOB"].ToString();   // 仅显示出生日期
-                lblAddress.Text = row["Address"].ToString(); // 仅显示地址
-                lblMobile.Text = row["Mobile"].ToString();   // 仅显示手机号
+                lblName.Text = row["Name"].ToString(); 
+                lblDOB.Text = row["DOB"].ToString();   
+                lblAddress.Text = row["Address"].ToString(); 
+                lblMobile.Text = row["Mobile"].ToString();   
 
-                // 根据 PatientId 获取医疗记录
+                
                 int patientId = Convert.ToInt32(row["Id"]);
                 BindMedicalRecords(patientId);
             }
@@ -66,7 +66,7 @@ namespace Web_TANyCHEN
 
         private void BindMedicalRecords(int patientId)
         {
-            // 获取患者的医疗记录
+            
             DataTable records = DatabaseHelper.GetMedicalRecordsByPatientId(patientId);
 
             if (records != null && records.Rows.Count > 0)
@@ -84,7 +84,7 @@ namespace Web_TANyCHEN
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
-            // 清除会话信息并返回登录页面
+            
             Session.Clear();
             Response.Redirect("2Login.aspx");
         }

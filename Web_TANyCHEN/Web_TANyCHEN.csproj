@@ -84,6 +84,7 @@
     <Content Include="web\inicio.css" />
     <Content Include="web\inicio.js" />
     <Content Include="web\login.css" />
+    <Content Include="web\patient.css" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="web\4Patients.aspx.cs">

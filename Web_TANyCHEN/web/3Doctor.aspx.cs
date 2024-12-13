@@ -82,7 +82,7 @@ namespace Web_TANyCHEN
             }
             else if (e.CommandName == "DeletePatient")
             {
-                // 删除患者和其相关的医疗记录
+                
                 DatabaseHelper.DeletePatient(patientId);
                 BindPatients();
             }
@@ -109,7 +109,7 @@ namespace Web_TANyCHEN
                 {
                     DatabaseHelper.DeleteMedicalRecord(recordId);
 
-                    // 刷新医疗记录
+                    
                     if (int.TryParse(hfSelectedPatientId.Value, out int patientId))
                     {
                         ShowMedicalRecords(patientId);
@@ -158,20 +158,20 @@ namespace Web_TANyCHEN
 
             if (string.IsNullOrEmpty(hfSelectedPatientId.Value))
             {
-                // 没有选中患者ID，则表示创建新患者
+                
                 DatabaseHelper.CreatePatient(newPatient);
             }
             else
             {
-                // 存在hfSelectedPatientId的值，则表示更新现有患者
+                
                 newPatient.Id = Convert.ToInt32(hfSelectedPatientId.Value);
                 DatabaseHelper.UpdatePatient(newPatient);
 
-                // 更新后清空ID
+                
                 hfSelectedPatientId.Value = string.Empty;
             }
 
-            BindPatients(); // 重新刷新患者列表
+            BindPatients(); 
             closeModal("addPatientModal");
         }
 
@@ -179,17 +179,17 @@ namespace Web_TANyCHEN
 
         protected void btnOpenAddPatientModal_Click(object sender, EventArgs e)
         {
-            // 清空当前选中的患者ID，使其成为添加新患者的模式
+            
             hfSelectedPatientId.Value = string.Empty;
 
-            // 清空输入框中的数据，确保是新输入
+            
             txtModalPatientName.Text = string.Empty;
             txtModalPatientDOB.Text = string.Empty;
             txtModalPatientAddress.Text = string.Empty;
             txtModalPatientMobile.Text = string.Empty;
             txtModalPatientPIN.Text = string.Empty;
 
-            // 调用打开弹窗的方法
+            
             openModal("addPatientModal");
         }
 
